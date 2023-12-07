@@ -1,0 +1,19 @@
+rotatingSchedule
+    daysOfTheWeek - standard days of the week to include
+    exceptions - the days that skip (ex a day off)
+    resets - days where the schedule is forced to restart
+
+
+dayEarly # early class, late lunch
+    blocks - 1,2,3,4,5, including lunches and breaks
+        type - what type of period (class vs collab)
+
+classSchedule
+    each period
+    args - conditions to determine which day to use (ex early, late)
+
+flexSchedule
+    each perid
+    args -
+
+
