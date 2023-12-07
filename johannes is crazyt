@@ -5,15 +5,26 @@ rotatingSchedule
 
 
 dayEarly # early class, late lunch
-    blocks - 1,2,3,4,5, including lunches and breaks
+    items - blocks 1,2,3,4,5, including lunches and breaks
         type - what type of period (class vs collab)
+
+dayLate
+    blocks
+        type
+
+halfDayEarly
+    blocks
+        type
+
+halfDaylate
+    blocks
+        type
+
+# as many types of days as there are
+
+
 
 classSchedule
     each period
     args - conditions to determine which day to use (ex early, late)
-
-flexSchedule
-    each perid
-    args -
-
 
