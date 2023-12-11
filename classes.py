@@ -7,6 +7,12 @@ class Period:
         self.teacher = teacher
         self.period_num = period_num
 
+    def __repr__(self):
+        return "Period()"
+
+    def __str__(self):
+        return f"Period() obj: {self.title}"
+
 
 class SchoolDay:
 
@@ -19,6 +25,12 @@ class SchoolDay:
 
         self.check_attributes()
 
+    def __repr__(self):
+        return "SchoolDay()"
+
+    def __str__(self):
+        return f"SchoolDay() obj: {self.title}"
+
     def check_attributes(self):
         check = lambda name, d_type: True if type(name) is not type(d_type) else False
         if check(self.title, ""):
@@ -30,3 +42,4 @@ class SchoolDay:
 
 
 day_A = SchoolDay("Day A", "Red")
+print(day_A)
