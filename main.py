@@ -1,117 +1,45 @@
-data = {
-    {
-        'name': 'early-lunch',
-        'schedule': {
-            {
-                'id': 'advisory',
-                'start': {'h': 8, 'm': 5},
-                'end': {'h': 8, 'm': 5},
-            },
-            {
-                'id': 'block-1',
-                'start': {'h': 8, 'm': 10},
-                'end': {'h': 9, 'm': 10},
-            },
-            {
-                'id': 'block-2',
-                'start': {'h': 9, 'm': 15},
-                'end': {'h': 10, 'm': 15},
-            },
-            {
-                'id': 'block-3',
-                'start': {'h': 10, 'm': 20},
-                'end': {'h': 11, 'm': 20},
-            },
-            {
-                'id': 'flex',
-                'start': {'h': 11, 'm': 25},
-                'end': {'h': 11, 'm': 55},
-            },
-            {
-                'id': 'lunch-early',
-                'start': {'h': 12, 'm': 0},
-                'end': {'h': 12, 'm': 25},
-            },
-            {
-                'id': 'block-4-late',
-                'start': {'h': 12, 'm': 30},
-                'end': {'h': 13, 'm': 30},
-            },
-            {
-                'id': 'block-5',
-                'start': {'h': 13, 'm': 35},
-                'end': {'h': 14, 'm': 35},
-            },
-            {
-                'id': 'collab',
-                'start': {'h': 14, 'm': 35},
-                'end': {'h': 15, 'm': 15},
-            },
-        }
-    },
-    {
-        'name': 'late-lunch',
-        'schedule': {
-            {
-                'id': 'advisory',
-                'start': {'h': 8, 'm': 5},
-                'end': {'h': 8, 'm': 5},
-            },
-            {
-                'id': 'block-1',
-                'start': {'h': 8, 'm': 10},
-                'end': {'h': 9, 'm': 10},
-            },
-            {
-                'id': 'block-2',
-                'start': {'h': 9, 'm': 15},
-                'end': {'h': 10, 'm': 15},
-            },
-            {
-                'id': 'block-3',
-                'start': {'h': 10, 'm': 20},
-                'end': {'h': 11, 'm': 20},
-            },
-            {
-                'id': 'flex',
-                'start': {'h': 11, 'm': 20},
-                'end': {'h': 12, 'm': 00},
-            },
-            {
-                'id': 'block-4-early',
-                'start': {'h': 12, 'm': 00},
-                'end': {'h': 13, 'm': 00},
-            },
-            {
-                'id': 'lunch-late',
-                'start': {'h': 13, 'm': 30},
-                'end': {'h': 13, 'm': 35},
-            },
-            {
-                'id': 'block-5',
-                'start': {'h': 13, 'm': 35},
-                'end': {'h': 14, 'm': 35},
-            },
-            {
-                'id': 'collab',
-                'start': {'h': 14, 'm': 35},
-                'end': {'h': 15, 'm': 15},
-            },
-        }
-    }
-}
+class Period:
+    def __init__(self, className, teacher, number, color):
+        self.name = className
+        self.teacher = teacher
+        self.number = number
+        self.color = color
 
-classData = {
-    'logic': +1,
-    'data': {
-        'period-1': {'name': 'Math', 'args': ['early']},
-        'period-2': {'name': 'Health', 'args': ['early']},
-        'period-3': {'name': 'English', 'args': ['early']},
-        'period-4': {'name': 'Free', 'args': ['early']},
-        'period-5': {'name': 'Spanish', 'args': ['late']},
-        'period-6': {'name': 'History', 'args': ['early']},
-        'period-7': {'name': 'Bio', 'args': ['late']},
-        'period-8': {'name': 'Jazz Band', 'args': ['late']}
-    }
-}
 
+class SchoolDay:
+    def __init__(self):
+        self.blocks = []
+
+
+class Block(Period):
+    def __init__(self, className, color, teacher, number, start_time, end_time):
+        super().__init__(className, teacher, number, color)
+        self.start_time = start_time
+        self.end_time = end_time
+
+
+# Create 8 periods
+periods = [
+    Period("Period 1", "Teacher1", 1, "Red"),
+    Period("Period 2", "Teacher2", 2, "Blue"),
+    Period("Period 3", "Teacher3", 3, "Green"),
+    Period("Period 4", "Teacher4", 4, "Yellow"),
+    Period("Period 5", "Teacher5", 5, "Orange"),
+    Period("Period 6", "Teacher6", 6, "Purple"),
+    Period("Period 7", "Teacher7", 7, "Pink"),
+    Period("Period 8", "Teacher8", 8, "Brown"),
+]
+
+# Create a SchoolDay with 5 blocks using the periods
+school_day = SchoolDay()
+school_day.blocks.append(Block(periods[0].name, periods[0].color, periods[0].teacher, periods[0].number, "8:00 AM", "9:00 AM"))
+school_day.blocks.append(Block(periods[1].name, periods[1].color, periods[1].teacher, periods[1].number, "9:00 AM", "10:00 AM"))
+school_day.blocks.append(Block(periods[2].name, periods[2].color, periods[2].teacher, periods[2].number, "10:00 AM", "11:00 AM"))
+school_day.blocks.append(Block(periods[3].name, periods[3].color, periods[3].teacher, periods[3].number, "11:00 AM", "12:00 PM"))
+school_day.blocks.append(Block(periods[4].name, periods[4].color, periods[4].teacher, periods[4].number, "1:00 PM", "2:00 PM"))
+
+# Repeat the process for the other 4 days of the week
+# ...
+x = 6
+# Example usage:
+print(f"{school_day.blocks[x].name} with {school_day.blocks[x].teacher} starts at {school_day.blocks[x].start_time}")
